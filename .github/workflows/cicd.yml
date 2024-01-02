@@ -51,16 +51,30 @@ jobs:
       - name: Deploy to ECS
         run: |
           task_definition=$(aws ecs register-task-definition --cli-input-json '{
-            "family": "task1",
-            "containerDefinitions": [
-              {
-                "name": "container1",
-                "image": "kangbyeonggyu/awstest",
-                "cpu": 256,
-                "memoryReservation": 512
-              }
-            ]
-          }')
+              "family": "task1",
+              "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
+              "networkMode": "awsvpc",
+              "containerDefinitions": [
+                {
+                  "name": "container1",
+                  "image": "kangbyeonggyu/awstest",
+                  "cpu": 256,
+                  "memory": 512,
+                  "essential": true,
+                  "portMappings": [
+                    {
+                      "containerPort": 8080,
+                      "protocol": "tcp"
+                    }
+                  ]
+                }
+              ],
+              "requiresCompatibilities": [
+                "FARGATE"
+              ],
+              "cpu": "256",
+              "memory": "512"
+            }')
 
           task_revision=$(echo $task_definition | jq -r '.taskDefinition.revision')
 
