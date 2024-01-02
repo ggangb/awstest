@@ -55,7 +55,7 @@ jobs:
               "networkMode": "awsvpc",
               "containerDefinitions": [
                 {
-                  "name": "container1",
+                  "name": "ecs-container",
                   "image": "kangbyeonggyu/awstest",
                   "cpu": 256,
                   "memory": 512,
