@@ -10,4 +10,9 @@ public class TestController {
 	public String test() {
 		return "변경완료";
 	}
+	
+	@GetMapping("/test1")
+	public String test1() {
+		return "변경완료1";
+	}
 }
