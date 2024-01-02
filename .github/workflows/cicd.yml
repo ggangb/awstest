@@ -52,7 +52,6 @@ jobs:
         run: |
           task_definition=$(aws ecs register-task-definition --cli-input-json '{
               "family": "task1",
-              "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
               "networkMode": "awsvpc",
               "containerDefinitions": [
                 {
