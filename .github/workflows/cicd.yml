@@ -50,4 +50,4 @@ jobs:
 
       - name: Deploy to ECS
         run: |
-          aws ecs update-service --cluster dc --service ts --task-definition task1
+          aws ecs update-service --cluster dc --service cicd --task-definition task1
