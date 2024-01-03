@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2ce16898ce1c43aebfc4b5e5f7107887 }}/kangbyeonggyu/awstest:${{ github.sha }}
+        tags: index.docker.io/kangbyeonggyu/awstest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'ggang'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f15eaa9581e746ce87164f0631ffd9a3 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2ce16898ce1c43aebfc4b5e5f7107887 }}/kangbyeonggyu/awstest:${{ github.sha }}'
+        images: 'index.docker.io/kangbyeonggyu/awstest:latest'
