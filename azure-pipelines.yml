@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '9da6ef99-eea7-4cd9-9ccf-44f1eaf67d65'
-  imageRepository: 'ggangbawstest'
+  imageRepository: 'samples/ggangbawstest'
   containerRegistry: 'ggang.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
